@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "title": "Rawon Daging Surabaya",
+    "category": "Makanan Utama",
+    "description": "Sup daging berkuah hitam dari kluwek, disajikan dengan nasi, tauge, dan telur asin.",
+    "cookingTime": 120,
+    "servings": 6,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Daging sapi", "quantity": "700 g" },
+      { "name": "Kluwek, ambil isinya", "quantity": "5 buah" },
+      { "name": "Bawang merah", "quantity": "8 siung" },
+      { "name": "Bawang putih", "quantity": "4 siung" },
+      { "name": "Serai, memarkan", "quantity": "2 batang" },
+      { "name": "Daun jeruk", "quantity": "4 lembar" },
+      { "name": "Garam dan minyak", "quantity": "secukupnya" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Rebus daging hingga empuk. Simpan kaldunya dan potong daging sesuai selera." },
+      { "stepNumber": 2, "instruction": "Haluskan kluwek, bawang merah, bawang putih, dan sedikit garam." },
+      { "stepNumber": 3, "instruction": "Tumis bumbu halus bersama serai dan daun jeruk hingga harum." },
+      { "stepNumber": 4, "instruction": "Masukkan bumbu dan daging ke dalam kaldu. Masak perlahan hingga bumbu meresap, lalu sajikan hangat." }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Gudeg Jogja",
+    "category": "Makanan Utama",
+    "description": "Nangka muda dimasak perlahan dengan santan, gula jawa, dan rempah hingga legit.",
+    "cookingTime": 180,
+    "servings": 5,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Nangka muda, potong", "quantity": "800 g" },
+      { "name": "Santan", "quantity": "800 ml" },
+      { "name": "Gula jawa, sisir", "quantity": "120 g" },
+      { "name": "Bawang merah", "quantity": "8 siung" },
+      { "name": "Bawang putih", "quantity": "4 siung" },
+      { "name": "Daun salam", "quantity": "4 lembar" },
+      { "name": "Lengkuas, memarkan", "quantity": "3 cm" },
+      { "name": "Garam", "quantity": "1 sdt" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Rebus nangka muda hingga setengah empuk, lalu tiriskan." },
+      { "stepNumber": 2, "instruction": "Haluskan bawang merah dan bawang putih. Tata nangka, bumbu, daun salam, dan lengkuas di panci." },
+      { "stepNumber": 3, "instruction": "Tuang santan, tambahkan gula jawa dan garam. Masak dengan api kecil." },
+      { "stepNumber": 4, "instruction": "Masak perlahan sambil sesekali diaduk hingga nangka empuk dan kuah mengental." }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Pempek Kapal Selam",
+    "category": "Makanan Utama",
+    "description": "Pempek ikan khas Palembang berisi telur, disajikan dengan kuah cuko asam manis pedas.",
+    "cookingTime": 75,
+    "servings": 4,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Ikan tenggiri giling", "quantity": "300 g" },
+      { "name": "Tepung tapioka", "quantity": "250 g" },
+      { "name": "Air es", "quantity": "150 ml" },
+      { "name": "Telur", "quantity": "4 butir" },
+      { "name": "Garam", "quantity": "1 sdt" },
+      { "name": "Gula merah", "quantity": "150 g" },
+      { "name": "Asam jawa", "quantity": "2 sdm" },
+      { "name": "Cabai rawit dan bawang putih", "quantity": "secukupnya" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Aduk ikan giling, air es, dan garam. Tambahkan tapioka sedikit demi sedikit hingga adonan bisa dibentuk." },
+      { "stepNumber": 2, "instruction": "Bentuk adonan seperti kantong, isi dengan telur, lalu rapatkan." },
+      { "stepNumber": 3, "instruction": "Rebus pempek hingga mengapung dan matang. Tiriskan, lalu goreng hingga keemasan." },
+      { "stepNumber": 4, "instruction": "Rebus gula merah, asam jawa, cabai, bawang putih, dan air. Saring kuah cuko dan sajikan bersama pempek." }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Es Cendol Gula Aren",
+    "category": "Minuman",
+    "description": "Cendol pandan dengan santan gurih, gula aren cair, dan es batu.",
+    "cookingTime": 35,
+    "servings": 4,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Tepung beras", "quantity": "100 g" },
+      { "name": "Tepung tapioka", "quantity": "30 g" },
+      { "name": "Sari pandan", "quantity": "600 ml" },
+      { "name": "Santan", "quantity": "500 ml" },
+      { "name": "Gula aren, sisir", "quantity": "200 g" },
+      { "name": "Daun pandan", "quantity": "2 lembar" },
+      { "name": "Es batu", "quantity": "secukupnya" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Masak tepung beras, tapioka, sari pandan, dan sejumput garam sambil diaduk hingga kental dan matang." },
+      { "stepNumber": 2, "instruction": "Tekan adonan cendol melalui cetakan ke dalam air es, lalu tiriskan." },
+      { "stepNumber": 3, "instruction": "Rebus gula aren dengan sedikit air dan daun pandan hingga larut, kemudian dinginkan." },
+      { "stepNumber": 4, "instruction": "Rebus santan dengan sejumput garam sambil diaduk perlahan. Sajikan cendol dengan santan, gula aren, dan es." }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Wedang Jahe Serai",
+    "category": "Minuman",
+    "description": "Minuman hangat tradisional dari jahe, serai, dan gula merah.",
+    "cookingTime": 20,
+    "servings": 3,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Jahe, bakar dan memarkan", "quantity": "100 g" },
+      { "name": "Serai, memarkan", "quantity": "2 batang" },
+      { "name": "Gula merah", "quantity": "80 g" },
+      { "name": "Air", "quantity": "750 ml" },
+      { "name": "Madu", "quantity": "1 sdm (opsional)" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Didihkan air bersama jahe bakar dan serai." },
+      { "stepNumber": 2, "instruction": "Kecilkan api dan rebus 10–15 menit hingga aroma rempah keluar." },
+      { "stepNumber": 3, "instruction": "Masukkan gula merah dan aduk hingga larut. Saring dan sajikan hangat, boleh ditambah madu." }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Es Doger",
+    "category": "Minuman",
+    "description": "Es serut khas Indonesia dengan santan, tape, kelapa muda, dan sirup.",
+    "cookingTime": 25,
+    "servings": 4,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Santan", "quantity": "500 ml" },
+      { "name": "Gula pasir", "quantity": "120 g" },
+      { "name": "Sirup cocopandan", "quantity": "3 sdm" },
+      { "name": "Tape singkong", "quantity": "150 g" },
+      { "name": "Kelapa muda", "quantity": "1 buah" },
+      { "name": "Ketan hitam matang", "quantity": "100 g" },
+      { "name": "Es serut", "quantity": "secukupnya" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Masak santan dan gula dengan api kecil sambil diaduk hingga gula larut. Dinginkan." },
+      { "stepNumber": 2, "instruction": "Campur sirup ke santan dingin, lalu bekukan. Keruk atau serut setelah mulai membeku." },
+      { "stepNumber": 3, "instruction": "Tata tape, kelapa muda, dan ketan hitam dalam gelas." },
+      { "stepNumber": 4, "instruction": "Tambahkan es santan serut dan sajikan segera." }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Bajigur",
+    "category": "Minuman",
+    "description": "Minuman hangat Sunda dari santan, gula aren, dan sedikit kopi.",
+    "cookingTime": 20,
+    "servings": 4,
+    "thumbnail": "assets/hero_banner.jpg",
+    "ingredients": [
+      { "name": "Santan", "quantity": "700 ml" },
+      { "name": "Gula aren, sisir", "quantity": "120 g" },
+      { "name": "Jahe, memarkan", "quantity": "3 cm" },
+      { "name": "Kayu manis", "quantity": "1 batang" },
+      { "name": "Kopi bubuk", "quantity": "1 sdt" },
+      { "name": "Garam", "quantity": "sejumput" }
+    ],
+    "steps": [
+      { "stepNumber": 1, "instruction": "Rebus santan, jahe, kayu manis, gula aren, kopi, dan garam dengan api kecil." },
+      { "stepNumber": 2, "instruction": "Aduk terus perlahan agar santan tidak pecah hingga gula larut dan minuman harum." },
+      { "stepNumber": 3, "instruction": "Saring bajigur dan sajikan hangat." }
+    ]
+  }
+]

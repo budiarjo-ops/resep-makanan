@@ -23,7 +23,7 @@ async function loadPublicRecipes() {
     const publicRecipes = await getPublicRecipes();
     allRecipes = [...recipes, ...publicRecipes];
     renderRecipes();
-    if (status) status.textContent = `${publicRecipes.length} resep tambahan dari Indonesia Food API`;
+    if (status) status.textContent = `${publicRecipes.length} resep tambahan dari API publik`;
   } catch (error) {
     if (status) status.textContent = 'Resep API sementara tidak tersedia; resep pilihan tetap bisa dibuka.';
   }

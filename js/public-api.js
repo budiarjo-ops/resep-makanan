@@ -1,5 +1,5 @@
-// Public Indonesian recipe API client.
-const PUBLIC_RECIPE_API = 'https://food-api-v10.vercel.app/api';
+// The static JSON file is a public, same-origin API endpoint served with the site.
+const PUBLIC_RECIPE_API = new URL('api/recipes.json', document.baseURI).href;
 const API_RECIPE_ID_OFFSET = 1000000000;
 
 function mapPublicRecipe(item) {
@@ -8,7 +8,7 @@ function mapPublicRecipe(item) {
   const isDessert = /dessert|penutup|kue/.test(categoryText);
   return {
     id: API_RECIPE_ID_OFFSET + Number(item.id),
-    publicApiId: item.id,
+    publicApiId: Number(item.id),
     source: 'public-api',
     name: item.title || 'Resep Indonesia',
     category: isDrink ? 'minuman' : isDessert ? 'dessert' : 'makan-siang',
@@ -19,7 +19,7 @@ function mapPublicRecipe(item) {
     difficulty: 'Mudah',
     rating: 4.8,
     reviews: 0,
-    description: item.description || `Resep ${item.title || 'Indonesia'} dari Indonesia Food API.`,
+    description: item.description || `Resep ${item.title || 'Indonesia'} dari API resep publik.`,
     tags: [isDrink ? 'minuman' : isDessert ? 'dessert' : 'nusantara', 'resep-api'],
     ingredients: (item.ingredients || []).map(ingredient => ({
       amount: ingredient.quantity || 'secukupnya',
@@ -33,31 +33,21 @@ function mapPublicRecipe(item) {
   };
 }
 
-async function requestPublicRecipes(path) {
-  const response = await fetch(`${PUBLIC_RECIPE_API}${path}`);
+async function readPublicRecipeData() {
+  const response = await fetch(PUBLIC_RECIPE_API, { cache: 'no-cache' });
   if (!response.ok) throw new Error(`API resep merespons ${response.status}`);
-  return response.json();
+  const data = await response.json();
+  if (!Array.isArray(data)) throw new Error('Format API resep tidak valid');
+  return data;
 }
 
 async function getPublicRecipes() {
-  const results = await Promise.allSettled([
-    requestPublicRecipes('/recipes?page=1&size=50'),
-    requestPublicRecipes('/recipes?category=Minuman&page=1&size=50')
-  ]);
-  const items = results.flatMap(result => {
-    if (result.status !== 'fulfilled') return [];
-    const payload = result.value;
-    return Array.isArray(payload) ? payload : payload.data || [];
-  });
-  const unique = [...new Map(items.filter(item => item && item.id != null).map(item => [String(item.id), item])).values()];
-  if (!unique.length && results.every(result => result.status === 'rejected')) {
-    throw new Error('API resep sedang tidak dapat dijangkau');
-  }
-  return unique.map(mapPublicRecipe);
+  return (await readPublicRecipeData())
+    .filter(item => item && Number.isFinite(Number(item.id)))
+    .map(mapPublicRecipe);
 }
 
 async function getPublicRecipe(id) {
-  const result = await requestPublicRecipes(`/recipes/${encodeURIComponent(id)}`);
-  const item = result.data || result.recipe || result;
-  return mapPublicRecipe(item);
+  const item = (await readPublicRecipeData()).find(recipe => Number(recipe.id) === Number(id));
+  return item ? mapPublicRecipe(item) : null;
 }
