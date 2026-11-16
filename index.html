@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Temukan dan masak resep masakan Indonesia terlezat. Nasi Goreng, Rendang, Soto Ayam, dan ratusan resep otentik Nusantara dengan panduan lengkap." />
+  <title>DapurKita — Resep Masakan Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🍳</div>
+      <span class="nav-logo-text">DapurKita</span>
+    </a>
+    <div class="nav-actions">
+      <button class="nav-btn active" id="btn-semua" onclick="showView('semua')">🍽️ Semua Resep</button>
+      <button class="nav-btn" id="btn-favorit" onclick="showView('favorit')">
+        ❤️ Favorit
+        <span class="fav-count" id="fav-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🇮🇩 Resep Masakan Nusantara</div>
+      <h1 class="hero-title">
+        Masak dengan <span class="highlight">Cinta</span>,<br/>
+        Sajikan yang Terbaik
+      </h1>
+      <p class="hero-subtitle">
+        Temukan ratusan resep masakan Indonesia otentik — dari sarapan pagi hingga dessert malam, semua ada di sini.
+      </p>
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          class="search-input"
+          id="search-input"
+          placeholder="Cari resep, bahan, atau masakan..."
+          autocomplete="off"
+        />
+        <button class="search-btn" onclick="handleSearch()">Cari</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Resep Lezat</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Kategori</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Otentik Indonesia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- VIEW: SEMUA RESEP -->
+    <div id="view-semua">
+      <!-- Category Filter -->
+      <section class="category-section">
+        <div class="category-scroll" id="category-filter">
+          <!-- Injected by JS -->
+        </div>
+      </section>
+
+      <!-- Section Header -->
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="section-title">Semua Resep</h2>
+          <p class="section-subtitle" id="section-subtitle">Pilih resep favoritmu dan mulai memasak</p>
+        </div>
+        <span class="results-info" id="results-info"></span>
+      </div>
+
+      <!-- Recipe Grid -->
+      <div class="recipe-grid" id="recipe-grid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+    <!-- VIEW: FAVORIT -->
+    <div id="view-favorit" style="display:none;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">❤️ Resep Favorit</h2>
+          <p class="section-subtitle">Koleksi resep yang kamu simpan</p>
+        </div>
+      </div>
+      <div class="recipe-grid" id="fav-grid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Dibuat dengan <span>❤️</span> untuk pecinta masakan Indonesia &mdash; <strong>DapurKita</strong></p>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toast-icon">✅</span>
+    <span id="toast-msg">Tersimpan ke favorit!</span>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
