@@ -3,6 +3,7 @@
 let currentCategory = 'semua';
 let currentSearch = '';
 let currentView = 'semua';
+let allRecipes = [...recipes];
 let favorites = JSON.parse(localStorage.getItem('dapurkita_favs') || '[]');
 
 // ==================
@@ -13,7 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
   renderRecipes();
   updateFavCount();
   setupSearchInput();
+  loadPublicRecipes();
 });
+
+async function loadPublicRecipes() {
+  const status = document.getElementById('api-status');
+  try {
+    const publicRecipes = await getPublicRecipes();
+    allRecipes = [...recipes, ...publicRecipes];
+    renderRecipes();
+    if (status) status.textContent = `${publicRecipes.length} resep tambahan dari Indonesia Food API`;
+  } catch (error) {
+    if (status) status.textContent = 'Resep API sementara tidak tersedia; resep pilihan tetap bisa dibuka.';
+  }
+}
 
 // ==================
 // CATEGORIES
@@ -70,7 +84,7 @@ function handleSearch() {
 // RENDER RECIPES
 // ==================
 function getFilteredRecipes() {
-  return recipes.filter(r => {
+  return allRecipes.filter(r => {
     const matchCat = currentCategory === 'semua' || r.category === currentCategory;
     const matchSearch = !currentSearch ||
       r.name.toLowerCase().includes(currentSearch) ||
@@ -160,7 +174,11 @@ function createRecipeCard(recipe, index = 0) {
 // NAVIGATE
 // ==================
 function goToRecipe(id) {
-  window.location.href = `recipe.html?id=${id}`;
+  const isPublicRecipe = Number(id) >= API_RECIPE_ID_OFFSET;
+  const apiId = isPublicRecipe ? Number(id) - API_RECIPE_ID_OFFSET : null;
+  window.location.href = isPublicRecipe
+    ? `recipe.html?id=${encodeURIComponent(apiId)}&source=public-api`
+    : `recipe.html?id=${id}`;
 }
 
 // ==================
@@ -178,7 +196,7 @@ function showView(view) {
 
 function renderFavorites() {
   const grid = document.getElementById('fav-grid');
-  const favRecipes = recipes.filter(r => favorites.includes(r.id));
+  const favRecipes = allRecipes.filter(r => favorites.includes(r.id));
 
   if (favRecipes.length === 0) {
     grid.innerHTML = `

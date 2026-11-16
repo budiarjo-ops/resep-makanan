@@ -6,16 +6,27 @@ let currentRecipe = null;
 // ==================
 // INIT
 // ==================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'));
+  const id = Number(params.get('id'));
 
   if (!id) {
     window.location.href = 'index.html';
     return;
   }
 
-  currentRecipe = recipes.find(r => r.id === id);
+  if (params.get('source') === 'public-api') {
+    const root = document.getElementById('detail-root');
+    root.innerHTML = '<div class="empty-state"><h2 class="empty-title">Memuat resep...</h2></div>';
+    try {
+      currentRecipe = await getPublicRecipe(id);
+    } catch (error) {
+      root.innerHTML = '<div class="empty-state"><h2 class="empty-title">Resep API tidak tersedia</h2><p class="empty-desc">Coba kembali beberapa saat lagi.</p><a class="btn-secondary" href="index.html">Kembali ke beranda</a></div>';
+      return;
+    }
+  } else {
+    currentRecipe = recipes.find(r => r.id === id);
+  }
 
   if (!currentRecipe) {
     window.location.href = 'index.html';
